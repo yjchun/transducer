@@ -10,6 +10,9 @@ def log_sum_exp(a, b):
 #TODO: it works but not passing test
 def decode_static(log_probs, beam_size=1, blank=0):
     """
+    Decode best prefix in the RNN Transducer. This decoder is static, it does
+    not update the next step distribution based on the previous prediction. As
+    such it looks for hypotheses which are length U.
     :param log_probs: FloatTensor(T,U,V) where T=encoder output, U=Predicted output, V=nbclasses
     """
     T, U, V = log_probs.shape
